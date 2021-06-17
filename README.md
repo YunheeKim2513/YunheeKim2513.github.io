@@ -1,2 +1,2 @@
-# DaraTechBlog.github.io
-Dara's Tech Blog
+# Yunheekim2513TechBlog.github.io
+Yunhee's Tech Blog
