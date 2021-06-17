@@ -1,0 +1,19 @@
+{
+  "name": "yunheekim2513.github.io",
+  "version": "1.0.0",
+  "description": "dara's Tech Blog",
+  "main": "index.tsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YunheeKim2513/Yunheekim2513.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YunheeKim2513/Yunheekim2513.github.io/issues"
+  },
+  "homepage": "https://github.com/YunheeKim2513/Yunheekim2513.github.io#readme"
+}
