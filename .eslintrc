@@ -7,8 +7,8 @@
   },
   "parser": "@typescript-eslint/parser",
   "plugins": [
-    "react",
-    "@typescript-eslint/eslint-plugin"
+    "@typescript-eslint",
+    "import"
   ],
   "extends": [
     "airbnb",
