@@ -1,22 +1,95 @@
 {
+  "root": true,
   "env": {
     "browser": true,
+    "commonjs": true,
     "es2021": true,
     "node": true,
     "jest": true
   },
   "parser": "@typescript-eslint/parser",
   "plugins": [
+    "react",
+    "jsx-a11y",
     "@typescript-eslint",
-    "import"
+    "prettier",
+    "redux-saga"
   ],
   "extends": [
     "airbnb",
     "airbnb/hooks",
     "prettier/react",
-    "plugin:redux-saga/recommended",
-    "plugin:@typescript-eslint/recommended",  // 타입스크립트 추천 룰셋
+    "plugin:react/recommended", // @eslint-plugin-react 규칙을 사용
+    "plugin:redux-saga/recommended", // redux-saga 규칙을 사용
+    "plugin:@typescript-eslint/recommended",  // 타입스크립트 규칙을 사용
     "prettier/@typescript-eslint",  // prettier 규칙과 충돌하는 @typescript-eslint/eslint-plugin 규칙 비활성화
-    "plugin:prettier/recommended" // eslint의 포매팅 기능을 prettier로 사용함. 항상 마지막에 세팅 되어야 함.            
-  ]
+    "plugin:prettier/recommended" // eslint의 포매팅 기능을 prettier로 사용함, 항상 마지막에 세팅 되어야 함            
+  ],
+  "parserOptions": {
+    "ecamVersion": 2021,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true // jsx의 파싱을 허용한다.
+    }
+  },
+  "ignorePatterns": [
+    "node_modules/",
+    "bundle/",
+    "public/"
+  ],
+  "rules": {
+    /* extends에서 적용한 룰셋을 덮어씌울 수 있습니다. (off: 0, wran: 1, erro: 2) */
+    "import/extensions": [
+      2,
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never",
+        "js": "never",
+        "jsx": "never",
+        "mjs": "never"
+      }
+    ], // ts, tsx, js, jsx import시 확장자가 있을면 에러로 표시해라
+    "prettier/prettier": [
+      2,
+      {
+        "arrowParens": "always", // 화살표 함수 괄호 사용 방식 (always: () => {} 화살표 함수에서 항상 괄호를 사용)
+        "endOfLine": "lf", // EoF 방식, OS별로 처리 방식이 다름 (lf: 줄 바꿈 만 ( \n), Linux 및 macOS 및 git repos 내부에서 공통 )
+        "printWidth": 120, // 줄 바꿈 할 폭 길이
+        "bracketSpacing": true, // 객체 리터럴에서 괄호에 공백 삽입 여부 
+        "useTabs": true, // 탭 사용 여부
+        "tabWidth": 2, // 탭 너비 
+        "semi": true, // 세미콜론 사용 여부
+        "trailingComma": "none", // 여러 줄을 사용할 때, 후행 콤마 사용 방식
+        "singleQuote": true, // single 쿼테이션 사용 여부
+        "quoteProps": "as-needed", // 객체 속성에 쿼테이션 적용 방식 (as-needed는 필요시에만 퀘테이션 적용)
+        "proseWrap": "preserve", // markdown 텍스트의 줄바꿈 방식 (v1.8.2) (preserve: 줄을 바꾸지말고 유지)
+        "jsxBracketSameLine": false, // JSX의 마지막 `>`를 다음 줄로 내릴지 여부
+        "jsxSingleQuote": true, // JSX에 singe 쿼테이션 사용 여부
+        "requirePragma": false, // 파일 상단에 미리 정의된 주석을 작성하고 Pragma로 포맷팅 사용 여부 지정 (v1.8.0)
+        "insertPragma": false, // 미리 정의된 @format marker의 사용 여부 (v1.8.0)
+        "overrides": [ 
+          {
+            "files": "*.json",
+            "options": {
+              "printWidth": 200
+            }
+          }
+        ] // 특정 파일별로 옵션을 다르게 지정함, ESLint 방식 사용
+      }
+    ] // extends 에서 적용한 rules을 덮어씌어짐
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // eslint-plugin-react에게 사용하고 있는 리액트의 버전을 알아서 탐지하도록 한다.
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx", ".js"]
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".d.ts"]
+      }
+    }
+  }
 }
